@@ -43,10 +43,11 @@ def open_login_screen(root):
             result = cur.fetchone()
 
         if result:
-            failed_attempts += 1
+            failed_attempts = 0
             messagebox.showinfo("Success", "Login Successful! ✅\nWelcome to Coffee Brew! ☕")
             open_menu_main(root)
         else:
+            failed_attempts += 1
             messagebox.showerror("Error", "Invalid login")
 
     tk.Button(root, text="Login", command=login).pack(pady=10)
