@@ -16,8 +16,13 @@ def open_login_screen(root):
     tk.Label(root, text="Password").pack()
     pwd = tk.Entry(root, show="*")
     pwd.pack()
+    
+    failed_attempts = 0
+    
+    
 
     def login():
+        nonlocal failed_attempts
         # Strips whitespace at the edges of the input
         username = user.get().strip()
         password = pwd.get().strip()
@@ -38,6 +43,7 @@ def open_login_screen(root):
             result = cur.fetchone()
 
         if result:
+            failed_attempts += 1
             messagebox.showinfo("Success", "Login Successful! ✅\nWelcome to Coffee Brew! ☕")
             open_menu_main(root)
         else:
