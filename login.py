@@ -38,7 +38,7 @@ def open_login_screen(root):
             result = cur.fetchone()
 
         if result:
-            messagebox.showinfo("Success", "Login Successful! ✅\nWelcome to Coffee Heaven! ☕")
+            messagebox.showinfo("Success", "Login Successful! ✅\nWelcome to Coffee Brew! ☕")
             open_menu_main(root)
         else:
             messagebox.showerror("Error", "Invalid login")
